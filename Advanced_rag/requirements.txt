@@ -1,0 +1,31 @@
+# Core
+numpy>=1.24
+
+# --- Ingestion: parsing -----------------------------------------------------
+pdfplumber>=0.11        # PDF text + table extraction
+python-docx>=1.1        # Word .docx parsing
+beautifulsoup4>=4.12     # HTML parsing
+lxml>=5.0                # faster HTML parser backend (optional, bs4 falls back to html.parser)
+
+# --- Ingestion: embeddings ---------------------------------------------------
+sentence-transformers>=3.0   # OPTIONAL: real semantic embeddings.
+                              # If not installed, ingestion.embedder falls back
+                              # to a deterministic hashing embedder automatically.
+
+# --- Ingestion: vector store --------------------------------------------------
+faiss-cpu>=1.8           # OPTIONAL: faster ANN search for large corpora.
+                          # If not installed, vector_store falls back to a
+                          # brute-force numpy cosine-similarity search.
+
+# --- OCR ----------------------------------------------------------------------
+pytesseract>=0.3.13
+Pillow>=10.0
+
+# --- Generation ---------------------------------------------------------------
+google-genai>=1.0           # OPTIONAL: only required if LLM_BACKEND=anthropic.
+                          # Without it (or without ANTHROPIC_API_KEY set),
+                          # generation.llm_client falls back to MockLLMClient.
+
+
+
+                          
